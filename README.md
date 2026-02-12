@@ -59,3 +59,60 @@ cmake --build build
 1. qpdfを実際に呼び出してPDFを生成
 2. MuPDF/Popplerでサムネイルプレビュー実装
 3. GTKでページ一覧UI（選択・並び替え・回転）
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..94a4c1385ffee6b0ceadc863fde601516f8ed433
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,51 @@
++# pdfhenshu
++
++`pdf_as` 風の「軽量・必要十分」なPDF編集ツールを C 言語で作るための、
++実装開始用プロトタイプです。
++
++## 現在の方針
++
++- 回転・抽出・結合を中心にする
++- 回転は `90/180/270` のみ（角度補正は対象外）
++- 将来のプレビュー機能追加を見据えてレイヤ分離する
++- DLL 同梱でインストール不要（Portable配布）
++
++## できること（現時点）
++
++- ポータブル設定の読み込み（`runtime/pdfhenshu.ini`）
++- コマンドの受け取りと検証
++- qpdf実行コマンドの組み立て表示（実実行は次フェーズ）
++
++```bash
++pdfhenshu --show-config
++pdfhenshu rotate input.pdf out.pdf 3-7 90
++pdfhenshu extract input.pdf out.pdf 5,18
++pdfhenshu merge out.pdf a.pdf b.pdf c.pdf
++```
++
++## ディレクトリ
++
++- `src/`: Cソース
++- `include/`: ヘッダ
++- `runtime/`: ポータブル設定
++- `docs/`: 設計・運用ドキュメント
++- `tools/`: 配布補助スクリプト
++
++## ビルド
++
++```bash
++cmake -S . -B build
++cmake --build build
++./build/pdfhenshu --show-config
++```
++
++## Portable（Windows）
++
++- 依存 EXE/DLL を同梱して配布
++- 詳細は `docs/PORTABLE_WINDOWS.md`
++
++## 次フェーズ
++
++1. qpdfを実際に呼び出してPDFを生成
++2. MuPDF/Popplerでサムネイルプレビュー実装
++3. GTKでページ一覧UI（選択・並び替え・回転）
