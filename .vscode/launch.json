@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run pdfhenshu (--show-config)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/pdfhenshu",
+      "args": ["--show-config"],
+      "cwd": "${workspaceFolder}",
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "preLaunchTask": "cmake-build"
+    },
+    {
+      "name": "Run pdfhenshu (rotate sample)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/pdfhenshu",
+      "args": ["rotate", "in.pdf", "out.pdf", "2,8", "90"],
+      "cwd": "${workspaceFolder}",
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "preLaunchTask": "cmake-build"
+    }
+  ]
+}

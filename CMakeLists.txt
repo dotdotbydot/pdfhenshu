@@ -13,6 +13,10 @@ add_executable(pdfhenshu
 target_include_directories(pdfhenshu PRIVATE include)
 
 if(MSVC)
+    target_compile_definitions(pdfhenshu PRIVATE _CRT_SECURE_NO_WARNINGS)
+endif()
+
+if(MSVC)
     target_compile_options(pdfhenshu PRIVATE /W4)
 else()
     target_compile_options(pdfhenshu PRIVATE -Wall -Wextra -Wpedantic)
