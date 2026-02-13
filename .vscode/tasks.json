@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "cmake-configure-preset",
+      "type": "shell",
+      "command": "cmake --preset default",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "cmake-build-preset",
+      "type": "shell",
+      "command": "cmake --build --preset default",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": "cmake-configure-preset",
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}

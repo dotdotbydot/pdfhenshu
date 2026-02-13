@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Windows: Run pdfhenshu (--show-config)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build-ninja/pdfhenshu.exe",
+      "args": ["--show-config"],
+      "cwd": "${workspaceFolder}",
+      "console": "externalTerminal",
+      "preLaunchTask": "cmake-build-preset"
+    },
+    {
+      "name": "Windows: Run pdfhenshu (rotate sample)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build-ninja/pdfhenshu.exe",
+      "args": ["rotate", "in.pdf", "out.pdf", "2,8", "90"],
+      "cwd": "${workspaceFolder}",
+      "console": "externalTerminal",
+      "preLaunchTask": "cmake-build-preset"
+    },
+    {
+      "name": "Linux/macOS: Run pdfhenshu (--show-config)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build-ninja/pdfhenshu",
+      "args": ["--show-config"],
+      "cwd": "${workspaceFolder}",
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "preLaunchTask": "cmake-build-preset"
+    }
+  ]
+}
